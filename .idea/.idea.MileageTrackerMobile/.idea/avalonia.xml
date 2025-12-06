@@ -3,6 +3,8 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="MileageTrackerMobile/App.axaml" value="MileageTrackerMobile.Desktop/MileageTrackerMobile.Desktop.csproj" />
+        <entry key="MileageTrackerMobile/AppDefaultStyles.axaml" value="MileageTrackerMobile.Desktop/MileageTrackerMobile.Desktop.csproj" />
         <entry key="MileageTrackerMobile/Views/MainView.axaml" value="MileageTrackerMobile.Desktop/MileageTrackerMobile.Desktop.csproj" />
       </map>
     </option>

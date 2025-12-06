@@ -12,10 +12,12 @@
                 </Button>  
                 <TextBlock Classes="bold"></TextBlock>
             </StackPanel>
-
-            
         </Border>
     </Design.PreviewWith>
+    
+    <!-- ============================================ -->
+    <!-- INPUT CONTROLS -->
+    <!-- ============================================ -->
     
     <Style Selector="NumericUpDown">
         <Setter Property="FontSize" Value="30"></Setter>
@@ -36,6 +38,10 @@
         <Setter Property="Margin" Value="10 20 0 0"></Setter>
         <Setter Property="Background" Value="Transparent"></Setter>
     </Style>
+    
+    <!-- ============================================ -->
+    <!-- LABELS -->
+    <!-- ============================================ -->
     
     <Style Selector="Label.title">
         <Setter Property="FontSize" Value="60"></Setter>
@@ -60,6 +66,14 @@
         <Setter Property="Background" Value="Transparent"></Setter>
     </Style>
     
+    <Style Selector="Label.mono">
+        <Setter Property="FontFamily" Value="{DynamicResource JetBrainsMono}"></Setter>
+    </Style>
+    
+    <!-- ============================================ -->
+    <!-- LAYOUT CONTAINERS -->
+    <!-- ============================================ -->
+    
     <Style Selector="StackPanel">
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="Margin" Value="0 5 0 5"></Setter>
@@ -72,6 +86,36 @@
     <Style Selector="Grid">
         <Setter Property="Background" Value="Transparent"></Setter>
     </Style>
+    
+    <!-- ============================================ -->
+    <!-- GLASS CARD STYLES -->
+    <!-- ============================================ -->
+    
+    <Style Selector="Border.glass-card">
+        <Setter Property="Background" Value="{DynamicResource GreyGradientBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource GreyBorderGradientBrush}"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="CornerRadius" Value="16"></Setter>
+        <Setter Property="ClipToBounds" Value="True"></Setter>
+    </Style>
+    
+    <Style Selector="Border.glass-card-with-shadow">
+        <Setter Property="Background" Value="{DynamicResource GreyGradientBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource GreyBorderGradientBrush}"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="CornerRadius" Value="16"></Setter>
+        <Setter Property="ClipToBounds" Value="True"></Setter>
+    </Style>
+    
+    <Style Selector="Border.glass-card-with-shadow">
+        <Setter Property="Effect">
+            <DropShadowEffect BlurRadius="20" Color="#15000000" OffsetX="0" OffsetY="4"/>
+        </Setter>
+    </Style>
+    
+    <!-- ============================================ -->
+    <!-- TEXT BLOCKS -->
+    <!-- ============================================ -->
     
     <Style Selector="TextBlock">
         <Setter Property="FontFamily" Value="{DynamicResource AkkoPro}"></Setter>
@@ -87,9 +131,21 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
     </Style>
     
+    <Style Selector="TextBlock.mono">
+        <Setter Property="FontFamily" Value="{DynamicResource JetBrainsMono}"></Setter>
+    </Style>
+    
+    <!-- ============================================ -->
+    <!-- WINDOW -->
+    <!-- ============================================ -->
+    
     <Style Selector="Window">
         <Setter Property="FontFamily" Value="{DynamicResource AkkoPro}"></Setter>
     </Style>
+    
+    <!-- ============================================ -->
+    <!-- BUTTONS -->
+    <!-- ============================================ -->
     
     <Style Selector="Button">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
@@ -100,6 +156,39 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="Margin" Value="0 0 0 0"></Setter>
     </Style>
+    
+    <Style Selector="Button /template/ ContentPresenter">
+        <Setter Property="RenderTransform" Value="scale(1)"></Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.1"></BrushTransition>
+                <BrushTransition Property="Foreground" Duration="0:0:0.1"></BrushTransition>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1"></TransformOperationsTransition>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}"></Setter>
+        <Setter Property="RenderTransform" Value="scale(1.05)"></Setter>
+    </Style>
+    
+    <Style Selector="Button.transparent">
+        <Setter Property="Background" Value="Transparent"></Setter>
+    </Style>
+    
+    <Style Selector="Button.transparent:pointerover /template/ ContentPresenter">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}"></Setter>
+        <Setter Property="RenderTransform" Value="scale(1.1)"></Setter>
+    </Style>
+    
+    <Style Selector="Button.mono">
+        <Setter Property="FontFamily" Value="{DynamicResource JetBrainsMono}"></Setter>
+    </Style>
+    
+    <!-- ============================================ -->
+    <!-- DROPDOWN BUTTONS -->
+    <!-- ============================================ -->
     
     <Style Selector="DropDownButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
@@ -127,6 +216,10 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="RenderTransform" Value="scale(1.05)"></Setter>
     </Style>
+    
+    <!-- ============================================ -->
+    <!-- ICON STYLES (Phosphor Icons) -->
+    <!-- ============================================ -->
     
     <Style Selector="Label.icon">
         <Setter Property="FontFamily" Value="{DynamicResource Phosphor}"></Setter>
@@ -167,10 +260,6 @@
         <Setter Property="Padding" Value="0 0 0 0"></Setter>
     </Style>
     
-    <Style Selector="Button.transparent">
-        <Setter Property="Background" Value="Transparent"></Setter>
-    </Style>
-    
     <Style Selector="Button.transparent Label.icon">
         <Setter Property="FontFamily" Value="{DynamicResource Phosphor}"></Setter>
     </Style>    
@@ -187,39 +276,6 @@
     <Style Selector="Button.iconfill">
         <Setter Property="FontFamily" Value="{DynamicResource PhosphorFill}"></Setter>
         <Setter Property="Padding" Value="0 3 5 0"></Setter>
-    </Style>
-    
-    <Style Selector="Button /template/ ContentPresenter">
-        <Setter Property="RenderTransform" Value="scale(1)"></Setter>
-        <Setter Property="Transitions">
-            <Transitions>
-                <BrushTransition Property="Background" Duration="0:0:0.1"></BrushTransition>
-                <BrushTransition Property="Foreground" Duration="0:0:0.1"></BrushTransition>
-                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1"></TransformOperationsTransition>
-            </Transitions>
-        </Setter>
-    </Style>
-    
-    <Style Selector="Button:pointerover /template/ ContentPresenter">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}"></Setter>
-        <Setter Property="RenderTransform" Value="scale(1.05)"></Setter>
-    </Style>
-    
-    <Style Selector="Button.transparent:pointerover /template/ ContentPresenter">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}"></Setter>
-        <Setter Property="RenderTransform" Value="scale(1.1)"></Setter>
-    </Style>
-    
-    <Style Selector="Label.mono">
-        <Setter Property="FontFamily" Value="{DynamicResource JetBrainsMono}"></Setter>
-    </Style>
-    
-    <Style Selector="Button.mono">
-        <Setter Property="FontFamily" Value="{DynamicResource JetBrainsMono}"></Setter>
-    </Style>
-    
-    <Style Selector="TextBlock.mono">
-        <Setter Property="FontFamily" Value="{DynamicResource JetBrainsMono}"></Setter>
     </Style>
     
 </Styles>
