@@ -1,0 +1,203 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null	(date 1765773183494)
++++ b/README.md	(date 1765773183494)
+@@ -0,0 +1,135 @@
++### MileageTrackerMobile
++
++Modern cross‑platform mileage tracking app built with Avalonia and .NET 9. Run it on Desktop (Windows/macOS/Linux), Android, and iOS from a single codebase using MVVM.
++
++#### Highlights
++- Single UI codebase with Avalonia UI and MVVM
++- Targets: `net9.0` (Desktop), `net9.0-android`, `net9.0-ios`
++- Clean, minimal login/registration flow based on a simple session ID
++- Theming and custom styles with `AppDefaultStyles.axaml`
++
++---
++
++### Screens
++- Home: Register or Log in using a numeric User ID
++- On successful registration, your new session ID flashes briefly for convenience
++- Friendly feedback on invalid or unknown session IDs
++
++> Tip: The UI you see is defined in `MileageTrackerMobile/Views/MainView.axaml` with logic in `MainView.axaml.cs` and `ViewModels/MainViewModel.cs`.
++
++---
++
++### Tech Stack
++- .NET 9
++- Avalonia UI (XAML)
++- MVVM pattern (`ViewModels`, `Views`, `Models`)
++- Multi‑target solution with platform heads:
++  - `MileageTrackerMobile.Desktop`
++  - `MileageTrackerMobile.Android`
++  - `MileageTrackerMobile.iOS`
++
++---
++
++### Project Structure (high level)
++```
++MileageTrackerMobile.sln
++├─ MileageTrackerMobile/                 # Shared app (Views, ViewModels, Models, Styles)
++│  ├─ Views/                             # XAML views (e.g., MainView.axaml)
++│  ├─ ViewModels/                        # ViewModels (e.g., MainViewModel.cs)
++│  ├─ Models/                            # Domain models (e.g., Session.cs)
++│  ├─ Assets/                            # Fonts and other assets
++│  ├─ App.axaml                          # App resources
++│  └─ AppDefaultStyles.axaml             # Theming/styling
++├─ MileageTrackerMobile.Desktop/         # Desktop head (net9.0)
++├─ MileageTrackerMobile.Android/         # Android head (net9.0-android)
++└─ MileageTrackerMobile.iOS/             # iOS head (net9.0-ios)
++```
++
++Key classes you may want to explore:
++- `Views/MainView.axaml` and `MainView.axaml.cs` — login/register UI and handlers
++- `ViewModels/MainViewModel.cs` — UI state, binding properties (e.g., `HomepageVisible`, `LoginInput`)
++- `Models/Session.cs` — session model
++- `APIController.cs` — async API helpers for creating/fetching sessions
++
++---
++
++### Getting Started
++
++#### Prerequisites
++- .NET SDK 9.0+
++- IDE: Rider, Visual Studio 2022+, or VS Code
++- For Android: Android SDK + `dotnet workload install android`
++- For iOS: Xcode + `dotnet workload install ios` (build/deploy from macOS)
++
++> If you are only trying the Desktop app, you only need the .NET SDK.
++
++#### Clone
++```
++git clone https://github.com/Mileage-Tracker-App/MileageTrackerMobile.git
++cd MileageTrackerMobile
++```
++
++#### Restore
++```
++dotnet restore
++```
++
++#### Run (Desktop)
++```
++dotnet run --project MileageTrackerMobile.Desktop
++```
++
++#### Run (Android)
++Use your IDE (Rider/Visual Studio) to select the `MileageTrackerMobile.Android` project and deploy to an emulator or device. Or via CLI:
++```
++dotnet build MileageTrackerMobile.Android -c Debug
++```
++
++#### Run (iOS)
++On macOS with Xcode and iOS workload installed. Use your IDE to deploy `MileageTrackerMobile.iOS` to a simulator/device. Or via CLI:
++```
++dotnet build MileageTrackerMobile.iOS -c Debug
++```
++
++---
++
++### Configuration
++The app demonstrates a simple session‑based auth flow. API operations are wrapped in `APIController`:
++- `CreateSessionAsync<TSession>()` — creates a new session and returns an ID
++- `GetSessionAsync<TSession>(id)` — retrieves an existing session by ID
++
++If your API requires a base URL or keys, add/update configuration in `APIController.cs` or wire it via DI according to your environment.
++
++---
++
++### Development Notes
++- UI state flags: `HomepageVisible`, `SessionIdDisplayVisible`, `SessionNotExistVisible`
++- Input binding: `LoginInput`
++- After registering, the app temporarily shows the assigned `SessionID` for 2 seconds
++- Login validates numeric input and fetches an existing session; otherwise shows a helpful message
++
++---
++
++### Contributing
++Contributions are welcome!
++1. Fork the repo
++2. Create a feature branch: `git checkout -b feature/your-feature`
++3. Commit your changes: `git commit -m "feat: add your feature"`
++4. Push the branch: `git push origin feature/your-feature`
++5. Open a Pull Request
++
++Please follow the existing code style and MVVM patterns.
++
++---
++
++### Roadmap Ideas
++- Persist trips and mileage entries per session
++- Cloud sync/back‑end integration and offline cache
++- Export to CSV/Excel
++- Map integration for route distance
++- Theming options (light/dark/system)
++
++---
++
++### License
++This project uses the [GNU GPL V3](https://www.gnu.org/licenses/gpl-3.0.md)
+Index: .idea/.idea.MileageTrackerMobile/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoGeneratedRunConfigurationManager\">\r\n    <projectFile kind=\"XamarinAndroid\">MileageTrackerMobile.Android/MileageTrackerMobile.Android.csproj</projectFile>\r\n    <projectFile profileName=\"MileageTrackerMobile.Browser\">MileageTrackerMobile.Browser/MileageTrackerMobile.Browser.csproj</projectFile>\r\n    <projectFile>MileageTrackerMobile.Desktop/MileageTrackerMobile.Desktop.csproj</projectFile>\r\n    <projectFile kind=\"XamarinIOS\">MileageTrackerMobile.iOS/MileageTrackerMobile.iOS.csproj</projectFile>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5c6ff2ad-c8ab-40f7-bae3-1e7b47a8080b\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MileageTrackerMobile/ViewModels/MainViewModel.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MileageTrackerMobile/ViewModels/MainViewModel.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml.cs\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"DpaMonitoringSettings\">\r\n    <option name=\"firstShow\" value=\"false\" />\r\n  </component>\r\n  <component name=\"EmbeddingIndexingInfo\">\r\n    <option name=\"cachedIndexableFilesCount\" value=\"16\" />\r\n    <option name=\"fileBasedEmbeddingIndicesEnabled\" value=\"true\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;ariplayz&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/ariplayz/MileageTrackerMobile.git&quot;,\r\n    &quot;accountId&quot;: &quot;7c0dcdd6-79f0-4cd5-8ea9-0409b97e641a&quot;\r\n  }\r\n}</component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/MileageTrackerMobile/APIController.cs\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"InvalidFacetManager\">\r\n    <ignored-facets>\r\n      <facet id=\"MileageTrackerMobile.Android/invalid/Android Facet - MileageTrackerMobile.Android\" />\r\n    </ignored-facets>\r\n  </component>\r\n  <component name=\"KubernetesApiPersistence\">{}</component>\r\n  <component name=\"KubernetesApiProvider\">{\r\n  &quot;isMigrated&quot;: true\r\n}</component>\r\n  <component name=\"MetaFilesCheckinStateConfiguration\" checkMetaFiles=\"true\" />\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"36S0rJey5Qag6r60UFpFnRcNkuO\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;.NET Project.MileageTrackerMobile.Desktop.executor&quot;: &quot;Run&quot;,\r\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;Android.MileageTrackerMobile.Android.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\r\n    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\".NET Project.MileageTrackerMobile.Desktop\">\r\n    <configuration name=\"MileageTrackerMobile.Desktop\" type=\"DotNetProject\" factoryName=\".NET Project\">\r\n      <option name=\"EXE_PATH\" value=\"\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\r\n      <option name=\"PASS_PARENT_ENVS\" value=\"1\" />\r\n      <option name=\"ENV_FILE_PATHS\" value=\"\" />\r\n      <option name=\"REDIRECT_INPUT_PATH\" value=\"\" />\r\n      <option name=\"MIXED_MODE_DEBUG\" value=\"0\" />\r\n      <option name=\"USE_MONO\" value=\"0\" />\r\n      <option name=\"RUNTIME_ARGUMENTS\" value=\"\" />\r\n      <option name=\"AUTO_ATTACH_CHILDREN\" value=\"0\" />\r\n      <option name=\"PROJECT_PATH\" value=\"$PROJECT_DIR$/MileageTrackerMobile.Desktop/MileageTrackerMobile.Desktop.csproj\" />\r\n      <option name=\"PROJECT_EXE_PATH_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_ARGUMENTS_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_WORKING_DIRECTORY_TRACKING\" value=\"1\" />\r\n      <option name=\"PROJECT_KIND\" value=\"DotNetCore\" />\r\n      <option name=\"PROJECT_TFM\" value=\"\" />\r\n      <method v=\"2\">\r\n        <option name=\"Build\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MileageTrackerMobile.Android\" type=\"XamarinAndroidProject\" factoryName=\"Xamarin.Android\">\r\n      <option name=\"PROJECT_PATH\" value=\"$PROJECT_DIR$/MileageTrackerMobile.Android/MileageTrackerMobile.Android.csproj\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n      <option name=\"TARGET_SELECTION_MODE\" value=\"DEVICE_AND_SNAPSHOT_COMBO_BOX\" />\r\n      <option name=\"DEPLOY_BEHAVIOUR_NAME\" value=\"Default\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"MileageTrackerMobile.iOS\" type=\"XamarinIOSProject\" factoryName=\"Xamarin.iOS\">\r\n      <option name=\"PROJECT_PATH\" value=\"$PROJECT_DIR$/MileageTrackerMobile.iOS/MileageTrackerMobile.iOS.csproj\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n      <option name=\"IS_PASS_PARENT_ENVS\" value=\"false\" />\r\n      <option name=\"EXTRA_MLAUNCH_PARAMETERS\" value=\"\" />\r\n      <option name=\"PLATFORM_TYPE\" value=\"IOS\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5c6ff2ad-c8ab-40f7-bae3-1e7b47a8080b\" name=\"Changes\" comment=\"\" />\r\n      <created>1762882720397</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1762882720397</updated>\r\n      <workItem from=\"1762882724080\" duration=\"33000\" />\r\n      <workItem from=\"1764984864861\" duration=\"2780000\" />\r\n      <workItem from=\"1764988679570\" duration=\"2783000\" />\r\n      <workItem from=\"1765139957476\" duration=\"273000\" />\r\n      <workItem from=\"1765140272381\" duration=\"5000\" />\r\n      <workItem from=\"1765675505253\" duration=\"9266000\" />\r\n      <workItem from=\"1765763938064\" duration=\"3401000\" />\r\n      <workItem from=\"1765767374021\" duration=\"44000\" />\r\n      <workItem from=\"1765767431906\" duration=\"4945000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Remove browser platform support and add session-based models to core project\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1765701667969</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1765701667969</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Implement session-based login and error handling in MainView\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1765768067687</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1765768067687</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnityCheckinConfiguration\" checkUnsavedScenes=\"true\" />\r\n  <component name=\"UnityProjectConfiguration\" hasMinimizedUI=\"false\" />\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CLEAR_INITIAL_COMMIT_MESSAGE\" value=\"true\" />\r\n    <MESSAGE value=\"Remove browser platform support and add session-based models to core project\" />\r\n    <MESSAGE value=\"Implement session-based login and error handling in MainView\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Implement session-based login and error handling in MainView\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"DotNet_Exception_Breakpoints\">\r\n          <properties exception=\"System.OperationCanceledException\" breakIfHandledByOtherCode=\"false\" displayValue=\"System.OperationCanceledException\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n        <breakpoint enabled=\"true\" type=\"DotNet_Exception_Breakpoints\">\r\n          <properties exception=\"System.Threading.Tasks.TaskCanceledException\" breakIfHandledByOtherCode=\"false\" displayValue=\"System.Threading.Tasks.TaskCanceledException\" />\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </breakpoint>\r\n        <breakpoint enabled=\"true\" type=\"DotNet_Exception_Breakpoints\">\r\n          <properties exception=\"System.Threading.ThreadAbortException\" breakIfHandledByOtherCode=\"false\" displayValue=\"System.Threading.ThreadAbortException\" />\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"github-copilot-workspace\">\r\n    <instructionFileLocations>\r\n      <option value=\".github/instructions\" />\r\n    </instructionFileLocations>\r\n    <promptFileLocations>\r\n      <option value=\".github/prompts\" />\r\n    </promptFileLocations>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml b/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml
+--- a/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml	(revision d54074c456ca3e3a4380825e3ec8584583385c91)
++++ b/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml	(date 1765773130787)
+@@ -11,10 +11,8 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5c6ff2ad-c8ab-40f7-bae3-1e7b47a8080b" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MileageTrackerMobile/ViewModels/MainViewModel.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml.cs" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -141,7 +139,7 @@
+       <workItem from="1765675505253" duration="9266000" />
+       <workItem from="1765763938064" duration="3401000" />
+       <workItem from="1765767374021" duration="44000" />
+-      <workItem from="1765767431906" duration="4945000" />
++      <workItem from="1765767431906" duration="5694000" />
+     </task>
+     <task id="LOCAL-00001" summary="Remove browser platform support and add session-based models to core project">
+       <option name="closed" value="true" />
+@@ -159,7 +157,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1765768067687</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Add user registration flow and session display in MainView">
++      <option name="closed" value="true" />
++      <created>1765772388462</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1765772388462</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -171,7 +177,8 @@
+     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+     <MESSAGE value="Remove browser platform support and add session-based models to core project" />
+     <MESSAGE value="Implement session-based login and error handling in MainView" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Implement session-based login and error handling in MainView" />
++    <MESSAGE value="Add user registration flow and session display in MainView" />
++    <option name="LAST_COMMIT_MESSAGE" value="Add user registration flow and session display in MainView" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>

@@ -11,8 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c6ff2ad-c8ab-40f7-bae3-1e7b47a8080b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MileageTrackerMobile/Assets/MileageTracker.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MileageTrackerMobile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/Assets/avalonia-logo.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MileageTrackerMobile/ViewModels/MainViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/MileageTrackerMobile/Views/MainWindow.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +144,7 @@
       <workItem from="1765675505253" duration="9266000" />
       <workItem from="1765763938064" duration="3401000" />
       <workItem from="1765767374021" duration="44000" />
-      <workItem from="1765767431906" duration="5694000" />
+      <workItem from="1765767431906" duration="7454000" />
     </task>
     <task id="LOCAL-00001" summary="Remove browser platform support and add session-based models to core project">
       <option name="closed" value="true" />
@@ -165,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765772388462</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add comprehensive README.md for project overview and setup instructions">
+      <option name="closed" value="true" />
+      <created>1765773212223</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765773212223</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +191,8 @@
     <MESSAGE value="Remove browser platform support and add session-based models to core project" />
     <MESSAGE value="Implement session-based login and error handling in MainView" />
     <MESSAGE value="Add user registration flow and session display in MainView" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add user registration flow and session display in MainView" />
+    <MESSAGE value="Add comprehensive README.md for project overview and setup instructions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add comprehensive README.md for project overview and setup instructions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

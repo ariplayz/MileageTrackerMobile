@@ -17,6 +17,17 @@ namespace MileageTrackerMobile.Views
             InitializeComponent();
         }
 
+        public async void Continue_OnClick(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as MainViewModel;
+            if (vm == null) return;
+
+            vm.SessionIdDisplayVisible = false;
+            vm.HomepageVisible = false;
+            vm.LogsPageVisible = true;
+
+        }
+        
         public async void SignUp_OnClick(object sender, RoutedEventArgs e)
         {
             var vm = DataContext as MainViewModel;
@@ -28,10 +39,6 @@ namespace MileageTrackerMobile.Views
                 
                 vm.sessionID = result.Value.Id;
                 vm.SessionIdDisplayVisible = true;
-                await Task.Delay(2000);
-                vm.SessionIdDisplayVisible = false;
-                
-                vm.HomepageVisible = false;
 
             }
             
@@ -58,6 +65,7 @@ namespace MileageTrackerMobile.Views
                 {
                     vm.sessionID = result.Value.Id;
                     vm.HomepageVisible = false;
+                    vm.LogsPageVisible = true;
                 }
                 else
                 {
@@ -74,6 +82,7 @@ namespace MileageTrackerMobile.Views
                 {
                     vm.sessionID = result.Value.Id;
                     vm.HomepageVisible = false;
+                    vm.LogsPageVisible = true;
                 }
                 else
                 {
