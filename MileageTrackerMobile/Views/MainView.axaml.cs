@@ -36,12 +36,12 @@ namespace MileageTrackerMobile.Views
             var result = await vm._apiController.CreateSessionAsync<TSession>();
             if (result.Success && result.Value != null)
             {
-                
-                vm.sessionID = result.Value.Id;
+
+                vm.SessionID = result.Value.Id;
+                vm.sessionID = result.Value.Id
                 vm.SessionIdDisplayVisible = true;
 
             }
-            
         }
 
         public async void Login_OnClick(object sender, RoutedEventArgs e)
@@ -63,6 +63,7 @@ namespace MileageTrackerMobile.Views
 
                 if (result.Success && result.Value != null)
                 {
+                    vm.SessionID = result.Value.Id;
                     vm.sessionID = result.Value.Id;
                     vm.HomepageVisible = false;
                     vm.LogsPageVisible = true;
@@ -80,6 +81,7 @@ namespace MileageTrackerMobile.Views
 
                 if (result.Success && result.Value != null)
                 {
+                    vm.SessionID = result.Value.Id;
                     vm.sessionID = result.Value.Id;
                     vm.HomepageVisible = false;
                     vm.LogsPageVisible = true;
